@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '5.1.0'
+    id 'eclipse'
+    id "io.spring.dependency-management" version "1.0.8.RELEASE"
+}
+
+group 'com.example'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 12.0
+targetCompatibility = 12.0
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.example.Main'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+	implementation 'com.amazonaws:aws-java-sdk-sqs:1.11.605'
+	implementation 'org.apache.commons:commons-lang3:3.9'
+	
+}
